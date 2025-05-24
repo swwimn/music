@@ -1,71 +1,56 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html {
-  width:100%; height:100%;
-  font-family: Arial, sans-serif;
-  background:#000; color:#fff;
-  overflow:hidden;
+  width:100%; height:100%; background:#000; color:#fff;
+  font-family: Arial, sans-serif; overflow:hidden;
 }
 #app {
-  width:100vw; height:100vh;
-  position:relative;
-  overflow:hidden;
+  position:relative; width:100vw; height:100vh; overflow:hidden;
 }
 #addBtn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size:2rem;
-  width:60px; height:60px;
-  border:none; border-radius:50%;
-  background:rgba(181,0,0,0.4); color:#fff;
+  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  width:60px; height:60px; border:none; border-radius:50%;
+  background:rgba(181,0,0,0.4); color:#fff; font-size:2rem;
   z-index:10;
 }
+#cropperContainer {
+  position:fixed; top:0; left:0; width:100vw; height:100vh;
+  background:rgba(0,0,0,0.8); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; z-index:20;
+}
+#cropImage {
+  max-width:90vw; max-height:70vh;
+}
+#cropConfirmBtn {
+  margin-top:10px; padding:10px 20px; font-size:16px;
+}
 .card-list {
-  position: absolute;
-  top: 0; left: 0;
-  height:100%;
-  width:100%;
-  display:flex;
-  align-items: center;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  perspective: 1200px;
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  display:flex; align-items:center; overflow-x:auto;
+  scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch; perspective:1200px;
 }
 .music-card {
-  flex: 0 0 80vw;
-  max-width: 320px;
-  scroll-snap-align: center;
-  border-radius: 20px;
-  padding: 12px;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  margin: 0 20px;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  flex:0 0 80vw; max-width:300px; scroll-snap-align:center;
+  border-radius:20px; padding:12px; margin:0 -60px;
+  color:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.25);
+  transform-style:preserve-3d; transition:transform 0.4s ease, opacity 0.4s ease;
+  position:relative;
 }
 .music-card .album {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
+  width:100%; border-radius:12px; object-fit:cover; height:auto;
 }
 .info .date {
-  text-align: center;
-  font-size: 10pt;
-  opacity: 0.6;
-  margin-bottom: 6px;
+  text-align:center; font-size:10pt; opacity:0.6; margin-bottom:6px;
 }
 .info .title {
-  font-size: 28pt; font-weight: bold;
-  margin-top: 8px;
-  text-align: center;
+  text-align:center; font-size:28pt; font-weight:bold; margin-top:8px;
 }
 .info .artist {
-  font-size: 14pt;
-  opacity: 0.9;
-  margin-top: 4px;
-  text-align: center;
+  text-align:center; font-size:14pt; opacity:0.9; margin-top:4px;
+}
+.music-card .delete-btn {
+  position:absolute; top:8px; right:8px; width:24px; height:24px;
+  background:rgba(255,255,255,0.8); color:#000; border:none;
+  border-radius:50%; display:none; align-items:center; justify-content:center;
+  font-size:16px; cursor:pointer; z-index:5;
 }
